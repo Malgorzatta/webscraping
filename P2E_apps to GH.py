@@ -6,8 +6,7 @@ import numpy as np
 pages = np.arange(1,2)
 headers = []
 row_data = []
-blockchains = []
-devices = []
+
 for page in pages:
     url = "https://playtoearn.net/blockchaingames?sort=name&direction=asc&page="+str(page)+""
     #print(url)
@@ -25,6 +24,8 @@ for page in pages:
         #if 'Move-To-Earn' not in second_tdA:
         #    continue
         #print(second_tdA)
+        
+        blockchains = []
         for third_td in y.find_all('td')[4].find_all('a'):
             blockchain = third_td['title']
             blockchains.append(blockchain)
@@ -32,6 +33,8 @@ for page in pages:
 
         td_tags = y.find_all('td')
         #print(td_tags)
+
+        devices = []
         for fourth_td in y.find_all('td')[5].find_all('a'):
             device = fourth_td['title']
             devices.append(device)
